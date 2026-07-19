@@ -34,7 +34,7 @@ device-reflash command in this project.
 Linux with Python 3.10 or newer and the kernel `usbtmc` driver is required.
 
 ```bash
-git clone <repository-url> ds1152e
+git clone https://github.com/LHX369963/ds1152e.git
 cd ds1152e
 python3 -m venv .venv
 . .venv/bin/activate
