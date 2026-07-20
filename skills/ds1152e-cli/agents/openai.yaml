@@ -1,0 +1,4 @@
+interface:
+  display_name: "DS1152E CLI"
+  short_description: "Operate and validate the RIGOL DS1152E through its CLI"
+  default_prompt: "Use $ds1152e-cli to inspect, measure, or validate the connected DS1152E safely through rigol."

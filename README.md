@@ -94,6 +94,14 @@ the scope was running beforehand.
 
 ## Verification
 
+The Git-tracked Codex skill is in `skills/ds1152e-cli`. From the repository root,
+install its discovery link with:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+ln -sfn "$(pwd)/skills/ds1152e-cli" "${CODEX_HOME:-$HOME/.codex}/skills/ds1152e-cli"
+```
+
 ```bash
 python -m pytest
 ```
