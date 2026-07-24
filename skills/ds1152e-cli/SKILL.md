@@ -35,6 +35,20 @@ For cross-channel phase, acquire synchronized 8192-point MAXIMUM records. Indepe
 
 When driving the scope from DG1022, verify both instrument identities and wiring before enabling output. Keep signals within the configured probe factor, vertical scale, coupling, offset, and input limits. Ensure the generator cleanup disables outputs even when scope acquisition fails.
 
+## Observe Across Time
+
+A scope query or waveform export is one acquisition, not continuous visual observation. Never infer stability, absence of drift, phase lock, trigger reliability, or absence of intermittent faults from one frame.
+
+For time-dependent claims:
+
+- Take at least five independent acquisitions, and increase the count and total duration to cover the suspected failure timescale.
+- Use varied, jittered intervals rather than only evenly spaced waits, so periodic drift is not repeatedly sampled at the same phase.
+- Record timestamps and keep trigger, timebase, sample rate, memory depth, channel scale, coupling, and probe factor fixed or record every change.
+- Re-arm acquisition between observations. For cross-channel timing, stop once per observation and export both channels from that same 8192-point MAXIMUM acquisition.
+- Inspect the spread and sequence of results, not only their mean. Retain outliers and raw waveforms needed to reproduce them.
+
+If any observation disagrees with the expected behavior, do not discard or average it away. Reproduce it and check instrument state, trigger source/level/mode, acquisition mode, sample-rate interpretation, channel alignment, clipping, noise, cabling, source settings, and command readback. Resolve the cause before reporting a pass; if source behavior and measurement artifact cannot be separated, report the result as unresolved.
+
 ## Verify Changes And Claims
 
 Run `python -m pytest` after code changes. Use the connected acceptance groups in the adjacent DG1022 repository for acquisition, channel, trigger, MATH, FFT, and robustness coverage.
